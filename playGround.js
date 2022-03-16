@@ -29,7 +29,7 @@ class Tag{
 
      _criaTag(value){
         let $tag = $("<span>");
-        $tag.addClass("badge bg-secondary");
+        $tag.addClass("badge badge-secondary");
         $tag.addClass("tagStyle");
         if(this._isNumber(value)){
             $tag.text("+" + value);
@@ -46,7 +46,6 @@ class Tag{
 
     }
 }
-
 
 
 
