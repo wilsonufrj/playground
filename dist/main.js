@@ -7,26 +7,60 @@
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./playGround.js":
 /*!***********************!*\
   !*** ./playGround.js ***!
   \***********************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("let quantidadeTags = [\"CEPEL\",\"Xlibs\",\"UFRJ\",\"fevereiro\",\"março\",\"Catastrofe\"]\n\n$(document).ready(function(){\n    \n    let contador = 0;\n    for(let quantidade=0;quantidade<quantidadeTags.length;quantidade++){\n        if(quantidade<2){\n            $('.card-body').append(criaTag(quantidadeTags[quantidade]));\n        }\n        else{\n            contador++;\n        }\n    }\n    $('.card-body').append(criaTag(contador));\n    \n})\n\n\nfunction criaTag(value){\n    let $tag = $(\"<span>\");\n    $tag.addClass(\"badge bg-secondary\");\n    $tag.addClass(\"tagStyle\");\n    if(isNumber(value)){\n        $tag.text(\"+\" + value);\n    }\n    else{\n        $tag.text(value);\n    }\n\n    return $tag;\n\n}\n\n//Cookbook javaScrpit\nfunction isNumber(value){\n    return typeof value === 'number' && isFinite(value);\n}\n\n\n\n\n//# sourceURL=webpack://playground/./playGround.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"sayHello\": () => (/* binding */ sayHello)\n/* harmony export */ });\nfunction addTag(){\n    let bodyForm = querySelector(\".form-body\")\n    bodyForm.innerHTML = \"<h1>Ola</h1>\"\n}\n\nfunction sayHello(){\n    console.log(\"hello\")\n}\n\n\n\n\n//# sourceURL=webpack://playground/./playGround.js?");
 
 /***/ })
 
 /******/ 	});
+/************************************************************************/
+/******/ 	// The require scope
+/******/ 	var __webpack_require__ = {};
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /************************************************************************/
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
 /******/ 	var __webpack_exports__ = {};
-/******/ 	__webpack_modules__["./playGround.js"]();
+/******/ 	__webpack_modules__["./playGround.js"](0, __webpack_exports__, __webpack_require__);
 /******/ 	
 /******/ })()
 ;
