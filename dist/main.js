@@ -16,7 +16,10 @@
   \***********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"sayHello\": () => (/* binding */ sayHello)\n/* harmony export */ });\nfunction addTag(){\n    let bodyForm = querySelector(\".form-body\")\n    bodyForm.innerHTML = \"<h1>Ola</h1>\"\n}\n\nfunction sayHello(){\n    console.log(\"hello\")\n}\n\n\n\n\n//# sourceURL=webpack://playground/./playGround.js?");
+
+
+eval("$(document).ready(function(){\n    \n    let tags = new Tag()\n     $('.card-body').append(tags.builder())\n    \n})\n\nclass Tag{\n    constructor(){\n        this._quantidadeTags = [\"CEPEL\",\"Xlibs\",\"UFRJ\",\"fevereiro\",\"março\"];\n    }\n\n    builder(){\n        let $divTag = $('<div>')\n        let contador = 0;\n        for(let quantidade=0;quantidade<this._quantidadeTags.length;quantidade++){\n            if(quantidade<2){\n                $divTag.append(this._criaTag(this._quantidadeTags[quantidade]));\n            }\n            else{\n                contador++;\n\n            }\n        }\n        $divTag.append(this._criaTag(contador))\n\n        return $divTag;\n    }\n\n     _criaTag(value){\n        let $tag = $(\"<span>\");\n        $tag.addClass(\"badge bg-secondary\");\n        $tag.addClass(\"tagStyle\");\n        if(this._isNumber(value)){\n            $tag.text(\"+\" + value);\n        }\n        else{\n            $tag.text(value);\n        }\n\n        return $tag;\n    }\n\n    _isNumber(value){\n        return typeof value === 'number' && isFinite(value);\n\n    }\n}\n\n\n\n\n\n\n//# sourceURL=webpack://playground/./playGround.js?");
+
 
 
 /***/ })

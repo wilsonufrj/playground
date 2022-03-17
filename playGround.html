@@ -15,17 +15,7 @@
     
 </head>
 
-<body>
-  
-  <nav class="navbar navbar-light bg-light">
-    <div class="container-fluid">
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </nav>
-    
+<body>  
     <div style="margin-left: 10px;">
       <h1>PlayGround</h1>
       <div id='modal-editar-tags' class='modal-component-geral'>
@@ -42,27 +32,13 @@
                     </div>
                     <div class="form-row" style="margin-bottom: 1rem;">
                         <h4 class="form-section"><i class="icon-globe2"></i>Tags</h4> 
-                        <button style="margin-left: 1rem;" id="btnAdicionar" class="btn main-color-system-hover" onclick="addTag()">
+                        <button style="margin-left: 1rem;" id="btnAdicionar" class="btn main-color-system-hover" onclick="criaArrayTags()">
                           <i class="fas fa-plus"></i>
                          </button>
                     </div>
                     <form class="form">
                         <div class="form-body">
                             
-                            
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <input type="text" id="nome" class="form-control" value="CEPEL" name="fname">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <button id="btnEditar" type="button" class="btn btn-primary">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
-                                    <button id="btnDeletar" type="button" class="btn btn-danger">
-                                        <i class="fas fa-trash"></i>  
-                                    </button>
-                                </div>
-                            </div>
 
                         </div>
                     </form>
@@ -82,24 +58,40 @@
     
     <!-- <script src="dist/main.js"></script> -->
   <script>
-      function addTag(){
+      const nome = ["Cepel","xlibs","estagio","dorNoOmbro"]
+      let contador = 0
+
+      function criaArrayTags(){
+        nome.forEach(tag => {
+          addTag(tag)
+        });
+      }
+       
+      function addTag(tag){
         let newTag = document.createElement('newTag')
-        newTag.innerHTML = `<div class="form-row">
+        newTag.innerHTML = `<div class="form-row" id=${'nome'+tag}>
                                 <div class="form-group col-md-6">
-                                    <input type="text" id="nome" class="form-control" value="CEPEL" name="fname">
+                                    <input type="text" class="form-control" value=${tag} name="fname">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <button id="btnEditar" type="button" class="btn btn-primary">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button id="btnDeletar" type="button" class="btn btn-danger">
+                                    <button id="btnDeletar" type="button" class="btn btn-danger" onclick="removeTag(this)">
                                         <i class="fas fa-trash"></i>  
                                     </button>
                                 </div>
                             </div>`
 
         document.querySelector(".form-body").appendChild(newTag);
+        contador+=1;
     }
+
+    function removeTag(idTag){
+      let tagAtual = document.querySelector('#'+idTag.parentNode.parentNode.id)
+      tagAtual.remove();
+    }
+
   </script>
 </body>
 
