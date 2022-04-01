@@ -18,38 +18,12 @@
 <body>  
     <div style="margin-left: 10px;">
       <h1>PlayGround</h1>
-      <div id='modal-editar-tags' class='modal-component-geral'>
-        <div class='modal-component-geral-container'>
-            <div class="type-top-estudo"></div>
-            <header class='modal-component-geral-header'>
-                <h1>Edicao de Tags</h1>
-                <button id="close-editor-tag" class='modal-close-geral'>✕</button>
-            </header>
-            <main class='modal-component-geral-body'>
-                <div class="">
-                    <div class="card-text">
-                        <p>As tags são utilizadas para filtrar estudos e/ou casos com caracteristicas semelhantes</p>
-                    </div>
-                    <div class="form-row" style="margin-bottom: 1rem;">
-                        <h4 class="form-section"><i class="icon-globe2"></i>Tags</h4> 
-                        <button style="margin-left: 1rem;" id="btnAdicionar" class="btn main-color-system-hover" onclick="criaArrayTags()">
-                          <i class="fas fa-plus"></i>
-                         </button>
-                    </div>
-                    <form class="form">
-                        <div class="form-body">
-                            
-
-                        </div>
-                    </form>
-                </div>
-            </main>
-            <div class='modal-component-geral-footer'>
-                <button id="btnFechar" class="btn background-color-xlibs color-icone-branco" data-i18n="filtrar">Fechar</button>
-            </div>
+        
+        <div class='modal-component-geral-footer'>
+            <button id="btnFechar" class="btn background-color-xlibs color-icone-branco" data-i18n="filtrar">Fechar</button>
         </div>
     </div>
-    </div>
+
     
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -58,39 +32,21 @@
     
     <!-- <script src="dist/main.js"></script> -->
   <script>
-      const nome = ["Cepel","xlibs","estagio","dorNoOmbro"]
-      let contador = 0
+      const tags = [
+        {   id:1,
+            name:"Cepel"
+        },
+        {
+            id:2,
+            name:"Estagio"
+        },
+        {
+            id:3,
+            name:"Tags"
+        }
+      ];
 
-      function criaArrayTags(){
-        nome.forEach(tag => {
-          addTag(tag)
-        });
-      }
-       
-      function addTag(tag){
-        let newTag = document.createElement('newTag')
-        newTag.innerHTML = `<div class="form-row" id=${'nome'+tag}>
-                                <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" value=${tag} name="fname">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <button id="btnEditar" type="button" class="btn btn-primary">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
-                                    <button id="btnDeletar" type="button" class="btn btn-danger" onclick="removeTag(this)">
-                                        <i class="fas fa-trash"></i>  
-                                    </button>
-                                </div>
-                            </div>`
-
-        document.querySelector(".form-body").appendChild(newTag);
-        contador+=1;
-    }
-
-    function removeTag(idTag){
-      let tagAtual = document.querySelector('#'+idTag.parentNode.parentNode.id)
-      tagAtual.remove();
-    }
+      
 
   </script>
 </body>
